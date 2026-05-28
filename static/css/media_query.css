@@ -1,0 +1,273 @@
+@media (max-width: 1500px) {
+
+    .home {
+        height: auto;
+    }
+
+    .home_img {
+        width: 40%;
+    }
+
+    .home_content h1 {
+        font-size: 3.5rem;
+    }
+
+    .catalogue_title h2 {
+        font-size: 4rem;
+    }
+
+    .products_collection img {
+        width: 250px;
+    }
+
+    .ad_text {
+        width: 50%;
+        left: 25%;
+        text-align: center;
+    }
+
+    .home_bg_text,.ad_bg_text,.contact_bg_text
+    {
+        font-size: 20rem;
+    }
+
+    .ad_img img
+    {
+        width: 79%;
+        margin-left: 0;
+    }
+}
+
+
+@media (max-width: 1024px) {
+
+    .home {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .home_img,
+    .home_content {
+        width: 100%;
+        text-align: center;
+    }
+
+    .home_bg_text,
+    .ad_bg_text,
+    .contact_bg_text {
+        display: none;
+    }
+
+    .home_content h1 {
+        font-size: 2.5rem;
+    }
+
+    .catalogue_title h2 {
+        font-size: 3rem;
+    }
+
+    .products_collection img {
+        width: 220px;
+    }
+
+    .ad_text {
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+
+    .ad_img {
+        display: none;
+    }
+
+    .shopping {
+        flex-direction: column;
+    }
+
+    .shopping_form {
+        width: 80%;
+    }
+
+    .contact_form {
+        width: 80%;
+        left: 0;
+        margin: auto;
+    }
+
+    .contact_img {
+        display: none !important;
+    }
+}
+@media (max-width: 768px) {
+
+    .nav_links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menu_bag button {
+        left: 85%;
+        top: 2%;
+    }
+
+    .home_content h1 {
+        font-size: 2rem;
+    }
+
+    .catalogue_content ul {
+        flex-direction: column;
+    }
+
+    .img_1, .img_2, .img_3, .img_4, .img_5 {
+        width: 150px;
+        height: 150px;
+    }
+
+    .products_text h2 {
+        font-size: 2rem;
+    }
+
+    .products_collection img {
+        width: 180px;
+    }
+
+    .contact_form input,
+    .contact_form textarea {
+        width: 100%;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+@media (max-width: 480px) {
+
+    .home_content h1 {
+        font-size: 1.6rem;
+    }
+
+    .home_content h3 {
+        font-size: 0.9rem;
+    }
+
+    .home_bg_text,
+    .ad_bg_text,
+    .contact_bg_text 
+    {
+        display: none;
+    }
+
+    .catalogue_title h2 {
+        font-size: 2.2rem;
+    }
+
+    .catalogue_title p {
+        font-size: 1rem;
+    }
+
+    .products_collection img {
+        width: 150px;
+    }
+
+    .ad_text h4 {
+        font-size: 2rem;
+    }
+
+    .shopping_form h2 {
+        font-size: 2rem;
+    }
+
+    .contact_text h2 {
+        font-size: 2rem;
+    }
+
+    .go_to_top {
+        right: 5%;
+        transform: scale(1);
+    }
+}
+
+@media (max-height: 600px) {
+    .home {
+        height: auto;
+    }
+    .home_img
+    {
+        width: 31% !important;
+    }
+    .home_content h1
+    {
+        font-size: 3.2rem !important;
+    }   
+    home_content h3
+    {
+        font-size: 1.2rem !important;
+    }
+
+    .home_bg_text,.ad_bg_text,.contact_bg_text
+    {
+        font-size: 20rem;
+    }
+
+    .basket_container ul
+    {
+        background: white !important;
+        align-items: flex-start !important;
+    }
+
+    .basket_container ul li
+    {
+        width: 150% !important;
+        padding: 10px;
+    }
+
+    .auth_container h2
+    {
+        margin: 5vh 0 !important;
+        font-size: 1.2rem !important;
+    }
+
+    .item_description
+    {
+        gap: 5px !important;
+    }
+
+
+    .price_container
+    {
+        height: 53vh !important;
+    }
+
+    .price_recap
+    {
+        margin: 10px !important;
+        gap: 15vw !important;
+    }
+    .price_tax
+    {
+        margin: 10px !important;
+        gap: 12vw !important;
+    }
+    .price_total
+    {
+        margin: 10px !important;
+        gap: 16vw !important;
+    } 
+    .contact_img
+    {
+        position: absolute;
+        width: 50%;
+        right: 0%;
+        background: linear-gradient(10deg, #fff 30%,#c7c7c7 90%);
+        clip-path: circle(450px at right);
+        display: flex;
+        justify-content: flex-end;
+    }
+    .contact_form
+    {
+        height: 75.5vh;
+    }
+}

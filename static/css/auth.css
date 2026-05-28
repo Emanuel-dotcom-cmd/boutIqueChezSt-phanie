@@ -1,0 +1,374 @@
+.basket
+{
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: -100%;
+    box-shadow: 0 0 20px 0px black;
+    width: 35%;
+    height: 100vh;
+    padding-top: 30px;
+    background: white; 
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+    z-index: 10;
+    transition: 0.3s ease;
+}
+
+.basket_title
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    margin: 20px 0;
+    font-weight: lighter;
+    font-family: 'Lato',sans-serif;
+}
+
+.basket_container
+{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 85%;
+    margin: 20px auto;
+    height: 35vh;
+    overflow-y: auto;
+}
+.basket_container::-webkit-scrollbar {
+  width: 6px;
+}
+.basket_container::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.basket_container ul
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background: var(--basket-color);
+    gap: 10px;
+    padding: 10px;
+}
+
+.basket_container li
+{
+    background: rgb(51, 51, 51);
+}
+
+.basket_container p
+{
+    padding: 10px;
+    font-size: 2.1rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: normal;
+    color: black;
+}
+
+.basket h3
+{
+    font-family: 'Lato', sans-serif;
+}
+
+.basket_item
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.item_img img
+{
+    width: 150px;
+    padding: 10px;
+}
+
+.item_description
+{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2,1fr);
+    grid-template-areas:
+    "title title title btn"
+    "format quantity number price";
+    color: white;
+    font-family: 'Lato',sans-serif;
+    gap: 10px;
+}
+
+.item_description h3
+{
+    grid-area: title;
+    padding-top: 20px;
+}
+
+.item_description button
+{
+    grid-area: btn;
+    width: 50px;
+    height: 30px;
+    margin-top: 40px;
+    background: whitesmoke;
+    color: black;
+    font-size: 1.2rem;
+    border: 1px solid var(--button-color);
+    border-radius: 25px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.item_description button:hover
+{
+    color: red;
+}
+
+.qty_input
+{
+
+    width: 60px;
+    height: 30px;
+    border: 1px solid white;
+    padding: 0 10px;
+    border-radius: 10px;
+    font-family: 'Lato',sans-serif;
+    font-weight: normal;
+}
+
+.item_price
+{
+    grid-area: price;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.item_format
+{
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.estimed_total
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 30px;
+    font-size: 1.4rem;
+    font-family: Arial;
+}
+
+.auth_btn
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.auth_btn button
+{
+    padding: 20px 25px;
+    font-size: 1.1rem;
+    font-family: 'DM Sans';
+    border: 1px solid rgb(219, 219, 219);
+    background: #d4d4d4;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.auth_btn button:hover
+{
+    background: #000;
+    color: white;
+}
+.basket_exit
+{
+    position: absolute;
+    width: 15px;
+    top:1.8%;
+    left: 95%;
+    cursor: pointer;
+    color: black;
+    transform: scale(1.7);
+}
+.authBox
+{
+    position: fixed;
+    top: -200%;
+    background: white;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    transition: 0.3s ease;
+    z-index: 5;
+}
+
+.auth_container
+{
+    width: 60%;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth_container h2
+{
+    margin: 10vh 0;
+    width: auto;
+    font-family: 'Lato', sans-serif;
+    font-size: 2.1rem;
+}
+
+.auth_form
+{
+  min-height: 50vh;
+  width: 400px;
+  padding: 30px;
+  background: #f5f5f5;
+}
+
+.auth_form h3
+{
+    font-family: 'DM Sans';
+    margin-bottom: 20px;
+}
+
+.first_name,.last_name, #auth_email, .pwd_container
+{
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: white;
+    border: 1px solid white;
+    border-bottom: 2px solid black;
+    outline: none;
+}
+
+.pwd_container
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+#auth_password
+{
+    width: 90%;
+    border: none;
+    outline: none;
+
+}
+
+.pwd_container i
+{
+    cursor: pointer;
+}
+
+#authActionBtn
+{
+    background: rgb(55, 197, 50);
+    box-shadow: 0 0 10px 0 rgb(55, 197, 50);
+    color: white;
+    font-size: 20px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#authActionBtn:hover{
+    background: #000;
+    box-shadow: none;
+}
+
+#toggleAuth{
+    margin-top: 15px;
+    cursor: pointer;
+    font-family: 'Lato',sans-serif;
+    color: cornflowerblue;
+}
+
+
+.continue_shopping
+{
+    color: rgb(31, 80, 243);
+    background: white;
+    border:1px solid white;
+    border-bottom: 2px solid rgb(31, 80, 243);
+    padding: 20px 0 5px 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.price_container
+{
+    margin: 50px 0 0 0;
+    padding: 20px;
+    width: 35%;
+    height: 47vh;
+    background: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.price_container h2
+{
+    font-family: 'Lato', sans-serif;
+    color: black;
+}
+
+.price_recap, .price_tax, .price_total
+{
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+    font-family: 'DM Sans';
+    border-bottom: 1px solid rgb(31, 80, 243);
+    color: black;
+}
+
+.price_recap {
+    gap: 20.25vw;
+}
+.price_tax {
+    gap: 18vw;
+}
+.price_total {
+    gap: 21.25vw;
+}
+
+
+.price_container button:hover
+{
+    background: black;
+    color: white;
+    border: 2px solid black;
+
+}
+
+.payment_services
+{
+    margin-top: 10px;
+    width: 100%;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
