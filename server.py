@@ -24,12 +24,12 @@ stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 
 # ✅ Firebase
 FIREBASE_KEY_PATH = os.getenv("FIREBASE_ADMIN_KEY_PATH")
-FIREBASE_JSON = os.getenv("FIREBASE_JSON")
+FIREBASE_JSON = os.getenv("FIREBASE_CONFIG_JSON")
 
 db = None
 try:
     if FIREBASE_JSON:
-        cred_dict = json.loads(firebase_json)
+        cred_dict = json.loads(FIREBASE_JSON)
         cred = credentials.Certificate(cred_dict)
         initialize_app(cred)
         db = firestore.client()
