@@ -24,13 +24,23 @@ stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 
 # ✅ Firebase
 FIREBASE_KEY_PATH = os.getenv("FIREBASE_ADMIN_KEY_PATH")
+FIREBASE_JSON = os.getenv("FIREBASE_JSON")
 
 db = None
 try:
-    if FIREBASE_KEY_PATH and os.path.exists(FIREBASE_KEY_PATH):
+    if FIREBASE_JSON:
+        cred_dict = json.loads(firebase_json)
+        cred = credentials.Certificate(cred_dict)
+        initialize_app(cred)
+        db = firestore.client()
+        print("Firebase initialisé avec succès via la variable JSON.")
+        
+    elif FIREBASE_KEY_PATH and os.path.exists(FIREBASE_KEY_PATH):
         cred = credentials.Certificate(FIREBASE_KEY_PATH)
         initialize_app(cred)
         db = firestore.client()
+        print("Firebase initialisé avec succès en local via le fichier de clés.")
+        
     else:
         print("Firebase non configuré (clés manquants)")
 except Exception as e:
