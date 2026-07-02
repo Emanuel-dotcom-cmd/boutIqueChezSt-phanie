@@ -142,6 +142,49 @@
         align-items: center;
         text-align: center;
     }
+
+    /* Basket optimisé pour tablette */
+    .basket {
+        width: 90% !important;
+        max-width: 400px !important;
+    }
+
+    .basket_container ul {
+        max-height: 60vh !important;
+        overflow-y: auto !important;
+    }
+
+    .basket_container ul li {
+        width: 100% !important;
+        padding: 15px !important;
+        flex-wrap: wrap !important;
+    }
+
+    .item_description {
+        flex-grow: 1 !important;
+    }
+
+    .price_container {
+        height: auto !important;
+        padding: 20px !important;
+    }
+
+    /* AuthBox optimisé pour tablette */
+    .authBox {
+        width: 85% !important;
+        max-width: 350px !important;
+    }
+
+    .auth_container {
+        padding: 20px !important;
+    }
+
+    .auth_container input,
+    .auth_container button {
+        width: 100% !important;
+        padding: 12px !important;
+        font-size: 1rem !important;
+    }
 }
 @media (max-width: 480px) {
 
@@ -187,6 +230,90 @@
     .go_to_top {
         right: 5%;
         transform: scale(1);
+    }
+
+    /* Basket optimisé pour petit téléphone */
+    .basket {
+        width: 95% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        top: 50% !important;
+        right: 50% !important;
+        transform: translateX(50%) translateY(-50%) !important;
+    }
+
+    .basket_title {
+        padding: 15px !important;
+        border-bottom: 1px solid #ddd !important;
+    }
+
+    .basket_exit {
+        right: 10px !important;
+        top: 10px !important;
+    }
+
+    .basket_container ul {
+        max-height: 50vh !important;
+        padding: 10px !important;
+    }
+
+    .basket_container ul li {
+        width: 100% !important;
+        padding: 10px !important;
+        gap: 10px !important;
+    }
+
+    .item_img img {
+        width: 80px !important;
+        height: 80px !important;
+    }
+
+    .price_container {
+        height: auto !important;
+        padding: 15px !important;
+        gap: 10px !important;
+    }
+
+    .price_recap,
+    .price_tax,
+    .price_total {
+        margin: 5px 0 !important;
+        gap: 2rem !important;
+    }
+
+    /* AuthBox optimisé pour petit téléphone */
+    .authBox {
+        width: 95% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        top: 50% !important;
+        right: 50% !important;
+        transform: translateX(50%) translateY(-50%) !important;
+    }
+
+    .auth_container {
+        padding: 20px !important;
+        gap: 15px !important;
+    }
+
+    .auth_container h2 {
+        font-size: 1.5rem !important;
+        margin: 10px 0 !important;
+    }
+
+    .auth_container input,
+    .auth_container button {
+        width: 100% !important;
+        padding: 10px !important;
+        font-size: 0.95rem !important;
+    }
+
+    .pwd_container {
+        width: 100% !important;
+    }
+
+    #toggleAuth {
+        font-size: 0.85rem !important;
     }
 }
 
