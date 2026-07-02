@@ -309,7 +309,7 @@ body::selection
     align-items: center;
 }
 
-.advertisement a
+.ad_text a
 {
     margin-top: 20px;
     padding: 10px 20px;
@@ -323,7 +323,7 @@ body::selection
     transition: background-color 0.3s ease;
 }
 
-.advertisement a:hover
+.ad_text a:hover
 {
     background-color: lightgray;
 }

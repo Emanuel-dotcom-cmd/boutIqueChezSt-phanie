@@ -20,18 +20,18 @@
         width: 250px;
     }
 
-    .promo_text {
+    .ad_text {
         width: 50%;
         left: 25%;
         text-align: center;
     }
 
-    .home_bg_text,.promo_bg_text,.contact_bg_text
+    .home_bg_text,.ad_bg_text,.contact_bg_text
     {
         font-size: 20rem;
     }
 
-    .promo_img img
+    .ad_img img
     {
         width: 79%;
         margin-left: 0;
@@ -54,7 +54,7 @@
     }
 
     .home_bg_text,
-    .promo_bg_text,
+    .ad_bg_text,
     .contact_bg_text {
         display: none;
     }
@@ -71,13 +71,13 @@
         width: 220px;
     }
 
-    .promo_text {
+    .ad_text {
         width: 100%;
         left: 0;
         text-align: center;
     }
 
-    .promo_img {
+    .ad_img {
         display: none !important;
     }
 
