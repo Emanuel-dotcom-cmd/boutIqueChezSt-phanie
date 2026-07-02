@@ -261,7 +261,10 @@ const updateCartUI = () => {
   if (!cart.length) {
     basketContainer.innerHTML = "<p>Le panier est vide</p>";
     estimedTotal.textContent = "";
-    idBtn.style.display = "none";
+    idBtn.style.display = "flex";
+    idBtn.disabled = true;
+    idBtn.style.opacity = "0.5";
+    idBtn.style.cursor = "not-allowed";
     subTotalTitle.textContent = "Sous-Total ";
     subTotal.textContent = "0 $";
     taxesTitle.textContent = "Taxes (15%) : ";
@@ -277,6 +280,9 @@ const updateCartUI = () => {
     const li = document.createElement("li");
     li.classList.add("basket_item");
     idBtn.style.display = "flex";
+    idBtn.disabled = false;
+    idBtn.style.opacity = "1";
+    idBtn.style.cursor = "pointer";
 
     const itemSection = document.createElement("section");
 
