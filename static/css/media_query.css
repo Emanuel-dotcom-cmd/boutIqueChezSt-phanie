@@ -78,7 +78,7 @@
     }
 
     .ad_img {
-        display: none;
+        display: none !important;
     }
 
     .shopping {
