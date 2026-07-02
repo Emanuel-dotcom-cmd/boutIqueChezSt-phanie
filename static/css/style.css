@@ -299,7 +299,7 @@ body::selection
     margin: 20px;
 }
 
-.advertisement
+.promo
 {
     position: relative;
     width: 100%;
@@ -309,7 +309,7 @@ body::selection
     align-items: center;
 }
 
-.ad_text a
+.promo_text a
 {
     margin-top: 20px;
     padding: 10px 20px;
@@ -323,12 +323,12 @@ body::selection
     transition: background-color 0.3s ease;
 }
 
-.ad_text a:hover
+.promo_text a:hover
 {
     background-color: lightgray;
 }
 
-.ad_text
+.promo_text
 {
     position: relative;
     width: 50%;
@@ -339,12 +339,12 @@ body::selection
     align-items: center;
 }
 
-.ad_text h4
+.promo_text h4
 {
     font-size: 3.2rem;
     font-weight: bold;
 }
-.ad_img
+.promo_img
 {
     position: relative;
     width: 50%;
@@ -353,14 +353,14 @@ body::selection
     align-items: center;
 }
 
-.ad_img img
+.promo_img img
 {
     position: relative;
     width: 70%;
     margin-left: 100px;
 }
 
-.ad_bg_text
+.promo_bg_text
 {
     position: absolute;
     left: 15%;
