@@ -261,10 +261,7 @@ const updateCartUI = () => {
   if (!cart.length) {
     basketContainer.innerHTML = "<p>Le panier est vide</p>";
     estimedTotal.textContent = "";
-    idBtn.style.display = "flex";
-    idBtn.disabled = true;
-    idBtn.style.opacity = "0.5";
-    idBtn.style.cursor = "not-allowed";
+    idBtn.style.display = "none";
     subTotalTitle.textContent = "Sous-Total ";
     subTotal.textContent = "0 $";
     taxesTitle.textContent = "Taxes (15%) : ";
