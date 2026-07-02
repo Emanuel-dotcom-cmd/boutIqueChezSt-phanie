@@ -98,7 +98,7 @@ const products = {
     title: "Vêtements faits maison",
     price: "50",
     format: "Standard",
-    images: ["/static/img/crochet.jpeg"],
+    images: ["/static/img/crochet.JPEG"],
   },
 };
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
