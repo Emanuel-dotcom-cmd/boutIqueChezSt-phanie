@@ -310,4 +310,5 @@ def cancel():
 
 # ✅ Lancer serveur
 if __name__ == "__main__":
-    app.run(debug=True, use_reloader=False, port=8000)
+    port = int(os.getenv("PORT", 8000))
+    app.run(debug=False, use_reloader=False, host="0.0.0.0", port=port)
