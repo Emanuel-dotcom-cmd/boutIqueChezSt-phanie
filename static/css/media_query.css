@@ -98,32 +98,6 @@
     .contact_img {
         display: none !important;
     }
-    .basket { 
-        width: 55%; 
-    }
- 
-    .authBox { 
-        flex-direction: column; overflow-y: auto; 
-    }
-    .auth_container, .price_container { 
-        width: 100%; 
-    }
-    .auth_form { 
-        width: 90%; max-width: 400px; margin: 0 auto; 
-    }
-    .price_container { 
-        height: auto; margin-top: 0; padding: 30px 15px; 
-    }
- 
-    .price_recap {
-         gap: 10vw; 
-        }
-    .price_tax { 
-        gap: 8vw; 
-    }
-    .price_total { 
-        gap: 11vw; 
-    }
 }
 @media (max-width: 768px) {
 
@@ -169,35 +143,49 @@
         text-align: center;
     }
 
-    .basket { width: 80%; }
-    .basket_exit { left: 90%; }
- 
-    .item_description {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto auto;
-        grid-template-areas:
-            "title title"
-            "format quantity"
-            "number price"
-            "btn btn";
+    /* Basket optimisé pour tablette */
+    .basket {
+        width: 90% !important;
+        max-width: 400px !important;
     }
-    .item_description button { margin-top: 10px; justify-self: center; }
-    .item_img img { width: 100px; }
- 
-    .auth_container h2 { margin: 5vh 0; font-size: 1.6rem; }
-    .auth_form { width: 90%; min-height: auto; padding: 20px; }
- 
-    .price_recap, .price_tax, .price_total {
-        justify-content: space-between;
-        gap: 0 !important;
-        margin: 15px 10px;
-    }
- 
-    .payment_services { font-size: 2rem; flex-wrap: wrap; }
-}
- 
-    
 
+    .basket_container ul {
+        max-height: 60vh !important;
+        overflow-y: auto !important;
+    }
+
+    .basket_container ul li {
+        width: 100% !important;
+        padding: 15px !important;
+        flex-wrap: wrap !important;
+    }
+
+    .item_description {
+        flex-grow: 1 !important;
+    }
+
+    .price_container {
+        height: auto !important;
+        padding: 20px !important;
+    }
+
+    /* AuthBox optimisé pour tablette */
+    .authBox {
+        width: 85% !important;
+        max-width: 350px !important;
+    }
+
+    .auth_container {
+        padding: 20px !important;
+    }
+
+    .auth_container input,
+    .auth_container button {
+        width: 100% !important;
+        padding: 12px !important;
+        font-size: 1rem !important;
+    }
+}
 @media (max-width: 480px) {
 
     .home_content h1 {
@@ -245,29 +233,88 @@
     }
 
     /* Basket optimisé pour petit téléphone */
-    .basket { width: 100%; }
-    .basket_title { font-size: 1.1rem; }
-    .basket_container p { font-size: 1.4rem; }
- 
-    .item_description {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "title"
-            "format"
-            "quantity"
-            "number"
-            "price"
-            "btn";
-        text-align: center;
+    .basket {
+        width: 95% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        top: 50% !important;
+        right: 50% !important;
+        transform: translateX(50%) translateY(-50%) !important;
     }
-    .item_img img { width: 80px; }
- 
-    .auth_form { padding: 15px; }
-    .auth_container h2 { font-size: 1.3rem; }
- 
-    #auth_password { width: 85%; }
- 
-    .price_container { padding: 15px; }
+
+    .basket_title {
+        padding: 15px !important;
+        border-bottom: 1px solid #ddd !important;
+    }
+
+    .basket_exit {
+        right: 10px !important;
+        top: 10px !important;
+    }
+
+    .basket_container ul {
+        max-height: 50vh !important;
+        padding: 10px !important;
+    }
+
+    .basket_container ul li {
+        width: 100% !important;
+        padding: 10px !important;
+        gap: 10px !important;
+    }
+
+    .item_img img {
+        width: 80px !important;
+        height: 80px !important;
+    }
+
+    .price_container {
+        height: auto !important;
+        padding: 15px !important;
+        gap: 10px !important;
+    }
+
+    .price_recap,
+    .price_tax,
+    .price_total {
+        margin: 5px 0 !important;
+        gap: 2rem !important;
+    }
+
+    /* AuthBox optimisé pour petit téléphone */
+    .authBox {
+        width: 95% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        top: 50% !important;
+        right: 50% !important;
+        transform: translateX(50%) translateY(-50%) !important;
+    }
+
+    .auth_container {
+        padding: 20px !important;
+        gap: 15px !important;
+    }
+
+    .auth_container h2 {
+        font-size: 1.5rem !important;
+        margin: 10px 0 !important;
+    }
+
+    .auth_container input,
+    .auth_container button {
+        width: 100% !important;
+        padding: 10px !important;
+        font-size: 0.95rem !important;
+    }
+
+    .pwd_container {
+        width: 100% !important;
+    }
+
+    #toggleAuth {
+        font-size: 0.85rem !important;
+    }
 }
 
 @media (max-height: 600px) {
