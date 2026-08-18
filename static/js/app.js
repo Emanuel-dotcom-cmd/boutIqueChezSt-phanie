@@ -28,6 +28,7 @@ let currentUser = null;
 const shopping = document.querySelector(".shopping");
 const shopBtns = document.querySelectorAll(".product a");
 const menuBag = document.querySelector(".menu_bag");
+const menuBagButton = document.querySelector(".menu_bag button");
 
 const form = document.querySelector(".shopping_form");
 const shopTitle = document.querySelector(".shopping_form h2");
@@ -43,7 +44,7 @@ const imgPopUp = document.querySelector(".img_pop_up img");
 const idBtn = document.querySelector(".auth_btn");
 
 const basket = document.querySelector(".basket");
-const basketExit = document.querySelector(".basket_exit span");
+const basketExitBtn = document.querySelector(".basket_exit span");
 const authBox = document.querySelector(".authBox");
 const basketContainer = document.querySelector(".basket_container");
 
@@ -124,7 +125,7 @@ try {
 
 shopFormBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  basket.style.right = "0";
+  openBasket();
   addToCart();
 });
 
@@ -237,7 +238,7 @@ const addToCart = () => {
   };
 
   const existing = cart.find(
-    (p) => p.id === item.id && p.format === item.format,
+    (p) => p.product_id === item.product_id && p.format === item.format,
   );
 
   if (existing) {
@@ -349,28 +350,6 @@ const updateCartUI = () => {
 
 updateCartUI();
 
-menuBag.addEventListener("click", () => {
-  if (basket.style.right === "0") {
-    basket.style.right = "-100%";
-  } else {
-    basket.style.right = "0";
-  }
-});
-
-basketExit.addEventListener("click", () => {
-  basket.style.right = "-100%";
-});
-
-basketContainer.addEventListener("click", (e) => {
-  const button = e.target.closest("button");
-  if (!button) return;
-
-  const id = Number(button.dataset.id);
-
-  cart = cart.filter((item) => item.id !== id);
-  updateCartUI();
-});
-
 basketContainer.addEventListener("input", (e) => {
   if (e.target.classList.contains("qty_input")) {
     const id = Number(e.target.dataset.id);
@@ -412,7 +391,7 @@ authBtn.addEventListener("click", async (e) => {
   const email = document.getElementById("auth_email").value;
   const password = document.getElementById("auth_password").value;
 
-  if (!firstname || !lastname || !email || !password) {
+  if ((!isLogin && (!firstname || !lastname)) || !email || !password) {
     alert("Veuillez remplir les champs ci-contre !");
     return;
   }
@@ -498,6 +477,53 @@ const clearCart = () => {
   updateCartUI();
 };
 
+// --- 2. GESTION SIMPLIFIÉE DE L'OUVERTURE / FERMETURE ---
+const openBasket = () => {
+  basket.style.right = "0";
+  basket.style.opacity = "1";
+  basket.style.visibility = "visible";
+  basket.style.pointerEvents = "auto";
+};
+
+const closeBasket = () => {
+  basket.style.right = "-100%";
+  basket.style.opacity = "0";
+  basket.style.visibility = "hidden";
+  basket.style.pointerEvents = "none";
+};
+
+const toggleBasket = () => {
+  if (basket.style.right === "0px" || basket.style.right === "0") {
+    closeBasket();
+  } else {
+    openBasket();
+  }
+};
+
+// --- 3. ÉCOUTEURS DE FERMETURE SÉCURISÉS ---
+if (basketExitBtn) {
+  basketExitBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    closeBasket();
+  });
+}
+
+// --- 4. SUPPRESSION D'ARTICLE CORRIGÉE ---
+basketContainer.addEventListener("click", (e) => {
+  const button = e.target.closest("button");
+  if (!button) return;
+
+  e.stopPropagation();
+
+  const id = Number(button.dataset.id);
+
+  if (id) {
+    cart = cart.filter((item) => item.id !== id);
+    updateCartUI();
+  }
+});
+
 passwordToggle.addEventListener("click", () => {
   if (passwordInput.type === "password") {
     passwordInput.type = "text";
@@ -508,19 +534,53 @@ passwordToggle.addEventListener("click", () => {
   }
 });
 
+const setAuthBoxOpenState = (isOpen) => {
+  authBox.classList.toggle("is-open", isOpen);
+
+  if (isOpen) {
+    authBox.style.top = "0";
+    authBox.style.opacity = "1";
+    authBox.style.visibility = "visible";
+    authBox.style.pointerEvents = "auto";
+    authBox.style.transform = "translateY(0)";
+  } else {
+    authBox.style.top = "-120%";
+    authBox.style.opacity = "0";
+    authBox.style.visibility = "hidden";
+    authBox.style.pointerEvents = "none";
+    authBox.style.transform = "translateY(-20px)";
+  }
+};
+
+const openAuthBox = () => {
+  setAuthBoxOpenState(true);
+};
+
+const closeAuthBox = () => {
+  setAuthBoxOpenState(false);
+};
+
 idBtn.addEventListener("click", () => {
   if (!cart.length) return;
-  basket.style.right = "-200%";
-  authBox.style.top = "0";
+  closeBasket();
+  openAuthBox();
 });
 
 continueShopping.addEventListener("click", () => {
-  authBox.style.top = "-200%";
+  closeAuthBox();
 });
 
-basketToggleBtn.addEventListener("click", () => {
-  basket.style.right = "0";
+basketToggleBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  toggleBasket();
 });
+
+if (menuBagButton) {
+  menuBagButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    toggleBasket();
+  });
+}
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 300 && window.scrollY < 2500) {

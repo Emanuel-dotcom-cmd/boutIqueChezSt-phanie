@@ -4,8 +4,9 @@
     overflow: hidden;
     top: 0;
     right: -100%;
+    left: auto;
     box-shadow: 0 0 20px 0px black;
-    width: 35%;
+    width: 450px;
     height: 100vh;
     padding-top: 30px;
     background: white; 
@@ -15,6 +16,20 @@
     padding: 20px;
     z-index: 10;
     transition: 0.3s ease;
+    transform: translateX(0);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.basket.is-open {
+    right: 0;
+    left: auto;
+    top: 0;
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .basket_title
@@ -35,10 +50,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: 85%;
-    margin: 20px auto;
-    height: 35vh;
+    width: 100%;
+    margin: 10px auto;
+    height: auto;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 .basket_container::-webkit-scrollbar {
   width: 6px;
@@ -51,12 +67,10 @@
 .basket_container ul
 {
     width: 100%;
-    height: auto;
     display: flex;
     flex-direction: column;
     background: var(--basket-color);
-    gap: 10px;
-    padding: 10px;
+    gap: 15px;
 }
 
 .basket_container li
@@ -80,34 +94,45 @@
 
 .basket_item
 {
+
     display: flex;
     flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    width: 100%;
+
 }
 
 .item_img img
 {
     width: 150px;
     padding: 10px;
+    object-fit: cover;
 }
 
 .item_description
 {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(2,1fr);
+    grid-template-columns: minmax(0,1fr) auto auto auto;
+    grid-template-rows: auto auto;
     grid-template-areas:
     "title title title btn"
     "format quantity number price";
     color: white;
     font-family: 'Lato',sans-serif;
-    gap: 10px;
+    gap: 8px;
 }
 
 .item_description h3
 {
     grid-area: title;
-    padding-top: 20px;
+    padding-top: 0;
+    font-size: 1.05rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .item_description button
@@ -115,8 +140,9 @@
     grid-area: btn;
     width: 50px;
     height: 30px;
-    margin-top: 40px;
+    margin-top: 0;
     background: whitesmoke;
+    justify-self: end;
     color: black;
     font-size: 1.2rem;
     border: 1px solid var(--button-color);
@@ -132,12 +158,12 @@
 
 .qty_input
 {
-
-    width: 60px;
+    grid-area: number;
+    width: 48px;
     height: 30px;
     border: 1px solid white;
-    padding: 0 10px;
-    border-radius: 10px;
+    padding: 0 5px;
+    border-radius: 8px;
     font-family: 'Lato',sans-serif;
     font-weight: normal;
 }
@@ -151,8 +177,12 @@
 
 .item_format
 {
-    font-size: 1rem;
+    grid-area: format;
+    font-size: 0.9rem;
     font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .estimed_total
@@ -195,178 +225,189 @@
 {
     position: absolute;
     width: 15px;
-    top:1.8%;
-    left: 95%;
+    top: 1.8%;
+    right: 3.4%;
     cursor: pointer;
     color: black;
     transform: scale(1.7);
-}
-.authBox
-{
-    position: fixed;
-    top: -200%;
-    background: white;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    transition: 0.3s ease;
-    z-index: 5;
+    z-index: 10;
 }
 
-.auth_container
-{
+.basket_exit span {
+    display: inline-block;
+    pointer-events: auto;
+}
+
+.basket_container {
+    overflow-y: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.authBox {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    z-index: 5;
+    display: flex;
+    flex-direction: row;
+    transition: top 0.4s ease-in-out, opacity 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.authBox.is-open {
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* --- PARTIE GAUCHE : FORMULAIRE D'IDENTIFICATION --- */
+.auth_container {
     width: 60%;
-    max-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Centre verticalement tout le bloc */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.auth_container h2
-{
-    margin: 10vh 0;
-    width: auto;
+.auth_container h2 {
+    margin: 0 0 25px 0; /* Suppression du 10vh qui décalait tout */
     font-family: 'Lato', sans-serif;
-    font-size: 2.1rem;
+    font-size: 2.2rem;
+    text-align: center;
 }
 
-.auth_form
-{
-  min-height: 50vh;
-  width: 400px;
-  padding: 30px;
-  background: #f5f5f5;
-}
-
-.auth_form h3
-{
-    font-family: 'DM Sans';
-    margin-bottom: 20px;
-}
-
-.first_name,.last_name, #auth_email, .pwd_container
-{
-    display: block;
+.auth_form {
     width: 100%;
-    margin-bottom: 15px;
-    padding: 10px;
+    max-width: 400px;
+    min-height: auto;
+    padding: 30px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.auth_form h3 {
+    font-family: 'DM Sans', sans-serif;
+    margin-bottom: 10px;
+}
+
+.first_name, .last_name, #auth_email, .pwd_container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 0;
+    padding: 12px;
     background: white;
-    border: 1px solid white;
+    border: 1px solid #e0e0e0;
     border-bottom: 2px solid black;
     outline: none;
+    box-sizing: border-box;
 }
 
-.pwd_container
-{
-    display: flex;
-    flex-direction: row;
+.pwd_container {
     align-items: center;
     gap: 10px;
 }
 
-#auth_password
-{
-    width: 90%;
+#auth_password {
+    width: 100%;
     border: none;
     outline: none;
-
 }
 
-.pwd_container i
-{
+.pwd_container i {
     cursor: pointer;
 }
 
-#authActionBtn
-{
+#authActionBtn {
+    width: 100%;
     background: rgb(55, 197, 50);
-    box-shadow: 0 0 10px 0 rgb(55, 197, 50);
+    box-shadow: 0 0 10px 0 rgba(55, 197, 50, 0.4);
     color: white;
-    font-size: 20px;
+    font-size: 1.1rem;
     padding: 12px;
-    border-radius: 10px;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
+    transition: 0.3s ease;
 }
 
-#authActionBtn:hover{
+#authActionBtn:hover {
     background: #000;
     box-shadow: none;
 }
 
-#toggleAuth{
-    margin-top: 15px;
+#toggleAuth {
+    margin-top: 10px;
     cursor: pointer;
-    font-family: 'Lato',sans-serif;
-    color: cornflowerblue;
-}
-
-
-.continue_shopping
-{
-    color: rgb(31, 80, 243);
-    background: white;
-    border:1px solid white;
-    border-bottom: 2px solid rgb(31, 80, 243);
-    padding: 20px 0 5px 0;
     font-family: 'Lato', sans-serif;
-    font-size: 1.1rem;
-    cursor: pointer;
+    color: cornflowerblue;
+    text-align: center;
 }
 
-.price_container
-{
-    margin: 50px 0 0 0;
-    padding: 20px;
-    width: 35%;
-    height: 47vh;
+.continue_shopping {
+    color: rgb(31, 80, 243);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgb(31, 80, 243);
+    padding: 8px 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+/* --- PARTIE DROITE : RÉCAPITULATIF DE PRIX --- */
+.price_container {
+    width: 40%;
+    height: 100vh;
     background: whitesmoke;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Centre verticalement le sommaire */
+    padding: 40px;
+    box-sizing: border-box;
+    border-left: 1px solid #e5e5e5;
 }
 
-.price_container h2
-{
+.price_container h2 {
     font-family: 'Lato', sans-serif;
     color: black;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
 }
 
-.price_recap, .price_tax, .price_total
-{
+.price_recap, .price_tax, .price_total {
     display: flex;
     flex-direction: row;
-    margin: 30px;
-    font-family: 'DM Sans';
+    justify-content: space-between; /* Remplace les vw par un espace automatique propre */
+    width: 100%;
+    max-width: 320px;
+    margin: 12px 0;
+    padding-bottom: 8px;
+    font-family: 'DM Sans', sans-serif;
     border-bottom: 1px solid rgb(31, 80, 243);
     color: black;
+    gap: 0;
 }
 
-.price_recap {
-    gap: 20.25vw;
-}
-.price_tax {
-    gap: 18vw;
-}
-.price_total {
-    gap: 21.25vw;
-}
-
-
-.price_container button:hover
-{
-    background: black;
-    color: white;
-    border: 2px solid black;
-
-}
-
-.payment_services
-{
-    margin-top: 10px;
+.payment_services {
+    margin-top: 20px;
     width: 100%;
-    font-size: 3rem;
+    font-size: 2.5rem;
     display: flex;
     flex-direction: row;
     justify-content: center;

@@ -99,6 +99,19 @@
         display: none !important;
     }
 }
+@media screen and (max-width: 992px) {
+  /* PANIER */
+  .basket {
+    width: 60%; /* Prend un peu plus d'espace sur tablette */
+    min-width: 320px;
+  }
+
+  /* ATHENTIFICATION */
+  .authBox {
+    width: 60%;
+    padding: 2.5rem 2rem;
+  }
+}
 @media (max-width: 768px) {
 
     .nav_links {
@@ -119,6 +132,10 @@
         flex-direction: column;
     }
 
+    .catalogue_content li  h4{
+        font-size: 0.9rem;
+    }
+
     .img_1, .img_2, .img_3, .img_4, .img_5 {
         width: 150px;
         height: 150px;
@@ -126,6 +143,10 @@
 
     .products_text h2 {
         font-size: 2rem;
+    }
+
+    .products_text p {
+        padding: 0 10px;
     }
 
     .products_collection img {
@@ -145,13 +166,13 @@
 
     /* Basket optimisé pour tablette */
     .basket {
-        width: 90% !important;
-        max-width: 400px !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        padding: 15px 10px !important;
     }
 
     .basket_container ul {
-        max-height: 60vh !important;
-        overflow-y: auto !important;
+        padding: 5px !important;
     }
 
     .basket_container ul li {
@@ -160,31 +181,109 @@
         flex-wrap: wrap !important;
     }
 
+    /* 2. Adaptation de la carte produit */
+    .basket_item {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        padding: 8px !important;
+        gap: 10px !important;
+    }
+
+    .item_img img {
+        width: 75px !important;
+        height: 75px !important;
+        object-fit: cover !important;
+        padding: 0 !important;
+    }
+
+    /* 3. Grille CSS fluide et ajustée pour petits écrans */
     .item_description {
-        flex-grow: 1 !important;
+        display: grid !important;
+        width: 100% !important;
+        grid-template-columns: minmax(60px, 1fr) auto auto auto !important;
+        grid-template-rows: auto auto !important;
+        grid-template-areas:
+            "title title title btn"
+            "format quantity number price" !important;
+        align-items: center !important;
+        gap: 6px !important;
     }
 
-    .price_container {
-        height: auto !important;
-        padding: 20px !important;
+    .item_description h3 {
+        padding-top: 0 !important;
+        font-size: 0.95rem !important;
+        line-height: 1.2 !important;
     }
 
-    /* AuthBox optimisé pour tablette */
+    .item_format {
+        font-size: 0.8rem !important;
+        line-height: 1.1 !important;
+    }
+
+    .qty_input {
+        width: 45px !important;
+        height: 28px !important;
+        padding: 0 4px !important;
+        font-size: 0.85rem !important;
+    }
+
+    .item_price {
+        font-size: 0.95rem !important;
+        white-space: nowrap !important;
+    }
+
+    .item_description button {
+        margin-top: 0 !important;
+        width: 36px !important;
+        height: 28px !important;
+        justify-self: end !important;
+        font-size: 0.9rem !important;
+    }
+    
+
     .authBox {
-        width: 85% !important;
-        max-width: 350px !important;
+        flex-direction: column-reverse !important; /* Empile les éléments verticalement */
+        overflow-y: auto !important; /* Ajoute un scroll si le contenu dépasse */
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        border-radius: 12px;
+        padding: 20px !important;
     }
 
     .auth_container {
+        width: 100% !important;
+        max-height: none !important;
+    }
+
+    .auth_container h2 {
+        margin: 20px 0 !important;
+        font-size: 1.6rem !important;
+    }
+
+    .auth_form {
+        width: 100% !important;
+        min-height: auto !important;
         padding: 20px !important;
     }
 
-    .auth_container input,
-    .auth_container button {
+    .price_container {
         width: 100% !important;
-        padding: 12px !important;
-        font-size: 1rem !important;
+        height: auto !important;
+        margin: 20px 0 0 0 !important;
+        padding: 15px !important;
     }
+
+    /* Correction des espacements de prix sur mobile */
+    .price_recap, 
+    .price_tax, 
+    .price_total {
+        width: 100% !important;
+        justify-content: space-between !important;
+        gap: 0 !important; /* Supprime les vw fixes qui cassent le layout */
+        margin: 15px 0 !important;
+    } 
 }
 @media (max-width: 480px) {
 
@@ -227,19 +326,37 @@
         font-size: 2rem;
     }
 
+    .contact_text p {
+        padding: 0 10px;
+    }
+
     .go_to_top {
         right: 5%;
         transform: scale(1);
     }
 
-    /* Basket optimisé pour petit téléphone */
     .basket {
+        
+        left: 50%;
+        right: auto;
+        top: -120%;
         width: 95% !important;
         height: auto !important;
         max-width: 100% !important;
-        top: 50% !important;
-        right: 50% !important;
-        transform: translateX(50%) translateY(-50%) !important;
+        transform: translateX(-50%);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .basket.is-open {
+        left: 50%;
+        right: auto;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
     }
 
     .basket_title {
@@ -247,14 +364,9 @@
         border-bottom: 1px solid #ddd !important;
     }
 
-    .basket_exit {
-        right: 10px !important;
-        top: 10px !important;
-    }
-
     .basket_container ul {
         max-height: 50vh !important;
-        padding: 10px !important;
+        padding: 5px !important;
     }
 
     .basket_container ul li {
@@ -266,6 +378,18 @@
     .item_img img {
         width: 80px !important;
         height: 80px !important;
+    }
+
+    .item_format {
+        font-size: 0.8rem !important;
+    }
+
+    .item_price {
+        font-size: 1rem !important;
+    }
+
+    .item_description button {
+        margin-top: 20px !important;
     }
 
     .price_container {
@@ -282,14 +406,6 @@
     }
 
     /* AuthBox optimisé pour petit téléphone */
-    .authBox {
-        width: 95% !important;
-        height: auto !important;
-        max-width: 100% !important;
-        top: 50% !important;
-        right: 50% !important;
-        transform: translateX(50%) translateY(-50%) !important;
-    }
 
     .auth_container {
         padding: 20px !important;
