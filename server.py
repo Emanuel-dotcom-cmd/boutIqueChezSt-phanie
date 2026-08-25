@@ -85,7 +85,7 @@ PRODUCTS_DB = {
     "bonnet": {"title": "Bonnets", "price": 20.00, "format": "Standard"},
     "chouchou": {"title": "Élastique en satin", "price": 12.00, "format": "Standard"},
     "perruque": {"title": "Perruque", "price": 200.00, "format": "Lace Curly"},
-    "parfum": {"title": "Parfum", "price": {"Petit format": 15.00, "Grand format": 20.00}},
+    "parfum": {"title": "Parfum", "price": {"Petit format": 15.00, "Grand format": 100.00}},
     "crochet": {"title": "Vêtements faits maison", "price": 50.00, "format": "Standard"},
 }
 

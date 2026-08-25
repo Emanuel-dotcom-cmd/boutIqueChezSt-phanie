@@ -91,7 +91,7 @@ const products = {
   },
   parfum: {
     title: "Parfum",
-    price: ["15", "20"],
+    price: ["15", "100"],
     format: ["Petit format", "Grand format"],
     images: ["/static/img/Parfum_pf.png", "/static/img/parfum_gf.png"],
   },
