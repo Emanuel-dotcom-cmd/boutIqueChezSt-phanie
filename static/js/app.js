@@ -101,6 +101,12 @@ const products = {
     format: "Standard",
     images: ["/static/img/crochet.JPEG"],
   },
+  lipstick: {
+    title: "Lip gloss",
+    price: "25",
+    format: "Standard",
+    images: ["/static/img/gloss_img1.JPG", "/static/img/gloss_img2.JPG"],
+  },
 };
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let isLogin = true;

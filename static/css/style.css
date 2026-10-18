@@ -228,13 +228,11 @@ body::selection
     font-family: 'Lato', sans-serif;
 
 }
-
-.img_1
+.img_1,.img_2,.img_3,.img_4,.img_5,.img_6
 {
     position: relative;
     width: 200px;
     height: 200px;
-    background:url(/static/img/Bonnet_product.webp) no-repeat center center/cover;
     background-color: white;
     border-radius: 100px;
     display: flex;
@@ -243,60 +241,33 @@ body::selection
     margin: 30px 20px;
 }
 
+.img_1
+{
+    background:url(/static/img/Bonnet_product.webp) no-repeat center center/cover;
+}
+
 .img_2
 {
-    position: relative;
-    width: 200px;
-    height: 200px;
     background:url(/static/img/Lace_curly_products.webp) no-repeat center center/cover;
-    background-color: white;
-    border-radius: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
 }
 
 .img_3
 {
-    position: relative;
-    width: 200px;
-    height: 200px;
     background: url(/static/img/Parfum_pf.png) no-repeat center center/cover;
-    background-color: white;
-    border-radius: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
 }
 
 .img_4
 {
-    position: relative;
-    width: 200px;
-    height: 200px;
     background:url(/static/img/satin_products.jpg) no-repeat center center/cover;
-    background-color: white;
-    border-radius: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
 }
 
 .img_5
 {
-    position: relative;
-    width: 200px;
-    height: 200px;
     background:url(/static/img/crochet_products.png) no-repeat center center/cover;
-    background-color: white;
-    border-radius: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
+}
+.img_6
+{
+    background:url(/static/img/gloss.png) no-repeat center center/cover;
 }
 
 .promo
@@ -411,7 +382,7 @@ body::selection
 .products_collection img
 {
     position: relative;
-    width: 300px;
+    width: 250px;
     max-height: 400px;
     background-color: white;
     border-radius: 10px;
